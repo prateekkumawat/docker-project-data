@@ -1,0 +1,89 @@
+  83  docker network ls
+   84  docker inspect bridge
+   85  docker ps -a
+   86  docker ps
+   87  docker run -dit --name redhat redhat/ubi9
+   88  docker ps
+   89  docker exec -it redhat bash
+   90  docker inspect redhat
+   91  ip a s
+   92  docker run -dit --name redhat1 redhat/ubi9
+   93  ip a s
+   94  docker network create -d bridge --name subnet1 --subnet=17.29.0.0/24
+   95  docker network create -d bridge subnet1 --subnet=17.29.0.0/24
+   96  docker network ls
+   97  docker network inspect subnet1
+   98  docker run -dit --name redhat2 --network subnet1 redhat/ubi9
+   99  docker ps
+  100  docker inspect redhat2
+  101  ip a s
+  102  docker ps
+  103  docker exec -it redhat ip a s
+  104  docker exec -it redhat1 ip a s
+  105  docker exec -it redhat1 bash
+  106  docker exec -it redhat2 ip a s
+  107  docker ps
+  108  docker network disconnect
+  109  docker network disconnect bridge redhat
+  110  docker ps
+  111  docker exec -it redhat ip a s
+  112  docker network connect subnet1 redhat
+  113  docker exec -it redhat ip a s
+  114  docker network ls
+  115  docker run -dit --name redhat3 --network none  redhat/ubi9
+  116  docker ps
+  117  docker exec -it redhat3 bash
+  118  docker run -dit --name redhat4 --network host  redhat/ubi9
+  119  docker exec -it redhat4 bash
+  120  docke ps
+  121  docker ps
+  122  docke image ls
+  123  docker image ls
+  124  docker image rm $(docker image ls)
+  125  docker image ls
+  126  docker ps -a
+  127  docker rm -f $(docker ps -aq)
+  128  docker image ls
+  129  docker image rm $(docker image ls)
+  130  docker image ls
+  131  docker image rm -f $(docker image ls)
+  132  docker image ls
+  133  docker ps
+  134  ls
+  135  cd ~
+  136  docker image ls 
+  136  docker image ls
+  137  docker ps
+  138  docker ps -a
+  139  docker system ds jenkinsapp
+  140  docker system df  jenkinsapp
+  141  docker system df
+  142  docker stat
+  143  docker stats
+  144  docker
+  145  ls
+  146  clear
+  147  git clone https://github.com/prateekkumawat/docker-project-data.git
+  148  ls
+  149  cd docker-project-data/
+  150  cd day1/
+  151  docker build -t redhat/ubi9:httpd  .
+  152  clear
+  153  docker image ls
+  154  docker ps -a
+  155  docker rm -f  $(docker ps -aq)
+  156  docker run -dit --name redhat1 redhat/ubi9:httpd
+  157  docker ps
+  158  docker logs redhat
+  159  docker logs redhat1
+  160  docker exec -it redhat1 bash
+  161  docker inspect redhat/ubi9:httpd
+  162  git pull
+  163  ls
+  164  docker build -t redhat/ubi9:nginx  .
+  165  docker image ls
+  166  docker run -dit --name redhat2 redhat/ubi9:nginx
+  167  clear
+  168  docker ps
+  169  docker exec -it redhat2 bash
+  170  history
