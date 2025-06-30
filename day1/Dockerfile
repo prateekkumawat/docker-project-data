@@ -10,6 +10,6 @@ LABEL buid="Redhat 9"
 RUN yum install nginx -y 
 
 # use copy instruction for copy data from source to container directory
-COPY src /var/www/html/ 
+COPY src /usr/share/nginx/html/
 
 CMD ["nginx", "-g", "daemon off;"]
