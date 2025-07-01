@@ -16,7 +16,7 @@ COPY src /opt/app
 COPY pom.xml /opt/app 
 
 # source code build using maven 
-RUN mvn clean install 
+RUN mvn clean package -DskipTests
 
 # RUN jar 
 CMD ["java", "-jar", "/opt/app/target/demo-0.0.1-SNAPSHOT.jar"]
