@@ -35,6 +35,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <mainClass>com.example.demo.DemoApplication</mainClass> <!-- Adjust if needed -->
+                </configuration>
             </plugin>
         </plugins>
     </build>
