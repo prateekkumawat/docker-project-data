@@ -12,7 +12,7 @@ RUN mkdir /opt/app
 WORKDIR /opt/app 
 
 # copy source code in image 
-COPY src /opt/app
+COPY src /opt/app/src
 COPY pom.xml /opt/app 
 
 # source code build using maven 
