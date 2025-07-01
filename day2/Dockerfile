@@ -2,7 +2,8 @@
 FROM redhat/ubi9:latest
 
 # Build java and maven packages
-RUN yum install -y java-17-openjdk* maven
+RUN yum install -y java-17-openjdk*
+RUN yum install -y maven
 
 # create source code directory  
 RUN mkdir /opt/app 
