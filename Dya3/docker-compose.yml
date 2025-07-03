@@ -1,10 +1,8 @@
 version: '3.7'
 services: 
-  database: 
+  databaseapp: 
     image: mysql:latest
-    container_name: mysql
-    ports:
-      - 3306:3306 
+    container_name: mysql 
     volumes: 
       - dbvol:/var/lib/mysql
     environment:
@@ -13,9 +11,9 @@ services:
       MYSQL_USER: flaskuser
       MYSQL_PASSWORD: flaskpass
   
-  flaskapp: 
-    image: flaskapp:latest
-    container_name: flaskapp
+  app: 
+    image: flaskapp:app
+    container_name: flask_app
     ports: 
       - 5000:5000
     environment:
@@ -24,6 +22,29 @@ services:
       MYSQL_DB: flaskdb 
       MYSQL_HOST: database
 
+  odrer: 
+    image: flaskapp:order
+    container_name: flask_order
+    ports: 
+      - 5001:5000
+    environment:
+      MYSQL_USER: flaskuser
+      MYSQL_PASSWORD: flaskpass
+      MYSQL_DB: flaskdb 
+      MYSQL_HOST: database   
+
+  databaseorder: 
+    image: mysql:latest
+    container_name: flask_order_db 
+    volumes: 
+      - orderdbvol:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: flaskdb
+      MYSQL_USER: flaskuser
+      MYSQL_PASSWORD: flaskpass     
+
 volumes:
-  dbvol:      
+  dbvol: 
+  orderdbvol:     
 
