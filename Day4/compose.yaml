@@ -26,6 +26,14 @@ services:
         MYSQL_USER: wordpressuser
         MYSQL_PASSWORD: wordpresspassword  
 
+   phpmyadmin: 
+      container_name: phpmyadmin
+      image: phpmyadmin:latest  
+      ports: 
+        - 8083:80
+      environment:
+        PMA_HOST: wordpress_database      
+
 volumes:
   wordpress_vol:
   databasevol:
