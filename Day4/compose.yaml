@@ -1,0 +1,31 @@
+version: '3.7'
+services: 
+   wordpress: 
+     container_name: wordpress_application 
+     image: wordpress:latest 
+     ports: 
+       - 8082:80
+     volumes: 
+       - wordpress_vol:/var/www/html/
+     environment:
+      WORDPRESS_DB_HOST: wordpress_database
+      WORDPRESS_DB_NAME: wp
+      WORDPRESS_DB_USER: wordpressuser
+      WORDPRESS_DB_PASSWORD: wordpresspassword 
+     depends_on: 
+       - wordpress_database
+
+   wordpress_database: 
+      container_name: wordpress_database
+      image: mysql:latest
+      volumes:
+        - databasevol:/var/lib/mysql/
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: wp
+        MYSQL_USER: wordpressuser
+        MYSQL_PASSWORD: wordpresspassword  
+
+volumes:
+  wordpress_vol:
+  databasevol:
